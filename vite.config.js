@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/ux-quality/',
   define: {
-    __PASSWORD_HASH__: JSON.stringify('41dc5373bfd0d83279efe2e8022335c3935fa8bdd7ec8dfb74c5b3d690ff9ac9'),
+    __PASSWORD_HASH__: JSON.stringify('993a681a9052fb7fe2f0e866a732ad2183a4266cf44cfc19df0588aa0a116df4'),
   },
 })
