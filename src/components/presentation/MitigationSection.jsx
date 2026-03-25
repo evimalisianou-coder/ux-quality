@@ -22,10 +22,10 @@ const columns = [
     bg: t.redBg,
     border: t.redBorder,
     points: [
-      { text: 'UX Quality metrics mapped to business KPIs' },
-      { text: 'Shared Dashboards for PMs and Designers' },
-      { text: 'Quarterly reviews baked into QBRs' },
-      { text: 'Centralised accessible insights' },
+      { text: 'UX Quality metrics mapped to business KPIs', cross: true },
+      { text: 'Shared Dashboards for PMs and Designers', cross: true },
+      { text: 'Quarterly reviews baked into QBRs', cross: true },
+      { text: 'Centralised accessible insights', cross: true },
     ],
   },
   {
@@ -78,6 +78,8 @@ export default function MitigationSection() {
                   <li key={j} style={styles.point}>
                     {pt.done
                       ? <span style={styles.tick}>✓</span>
+                      : pt.cross
+                      ? <span style={styles.cross}>✕</span>
                       : <span style={{ ...styles.dot, background: col.color }} />
                     }
                     <span style={pt.done ? styles.pointDone : undefined}>{pt.text}</span>
@@ -160,6 +162,13 @@ const styles = {
   },
   tick: {
     color: '#4ade80',
+    fontSize: '13px',
+    fontWeight: '700',
+    flexShrink: 0,
+    lineHeight: 1.5,
+  },
+  cross: {
+    color: '#f87171',
     fontSize: '13px',
     fontWeight: '700',
     flexShrink: 0,
