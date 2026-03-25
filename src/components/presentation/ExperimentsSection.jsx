@@ -20,6 +20,7 @@ const experiments = [
       'Confluence MCP server to read and write to Confluence',
       'Create a Claude Skill to create a synthetic persona so stakeholders can easily interact with the data',
     ],
+    brief: 'https://docs.google.com/document/d/1606Ov5f2wuqFl2OOxQM1Hbe0fOFJMexUKkwFracfz6s/edit?tab=t.0',
     lead: 'James Reece',
     team: ['Amy Gray', 'Anna Fraser', 'Sara Lopez', 'Christine Hoang'],
     color: t.purple,
@@ -42,6 +43,7 @@ const experiments = [
       'Nebula Design System Documentation: components, documentation and research',
       'Figma plugin to export design tokens as JSON for Claude to reference in VSCode',
     ],
+    brief: 'https://docs.google.com/document/d/1VBavmALdKwaDg6IUthd3D1OR1fmaD74gc3lcm_gEgTo/edit?tab=t.0',
     lead: 'Megan Ellis',
     team: ['Kate Hayes', 'Filipe Xavier', 'Ben Whewell', 'Faisal Chaudhuri'],
     color: t.accent,
@@ -65,6 +67,7 @@ const experiments = [
       'Nebula Design System Documentation: components, documentation and research',
       'AI Standards: Core UX principles and internal "Knowledge & Experiments" documentation',
     ],
+    brief: 'https://docs.google.com/document/d/1DeixiraYC-ZH_K4pKpuUjrH4yvKfrJiDJpoIzcHJUKY/edit?tab=t.0',
     lead: 'Flori Galeano',
     team: ['Alice Yeates', 'Evi Malisianou', 'Christian Fradet', 'Ben Tiller'],
     color: t.blue,
@@ -178,6 +181,11 @@ export default function ExperimentsSection() {
                             <div key={j} style={styles.member}>{name}</div>
                           ))}
                         </div>
+                        {exp.brief && (
+                          <a href={exp.brief} target="_blank" rel="noopener noreferrer" style={{ ...styles.briefLink, color: exp.color, borderColor: exp.border }}>
+                            View full brief ↗
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -389,6 +397,21 @@ const styles = {
     letterSpacing: '0.1em',
     textTransform: 'uppercase',
     opacity: 0.6,
+  },
+  briefLink: {
+    display: 'inline-block',
+    marginTop: '12px',
+    fontSize: '13px',
+    fontWeight: '600',
+    textDecoration: 'none',
+    padding: '8px 14px',
+    borderRadius: '8px',
+    border: '1px solid',
+    background: 'rgba(255,255,255,0.03)',
+    transition: 'opacity 0.2s',
+    width: '100%',
+    textAlign: 'center',
+    boxSizing: 'border-box',
   },
   footer: {
     marginTop: '80px',
