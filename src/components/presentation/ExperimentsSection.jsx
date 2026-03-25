@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { t, wrap, sectionBase } from './theme'
 import SectionLabel from './SectionLabel'
+
+const BASE = import.meta.env.BASE_URL
 
 const experiments = [
   {
@@ -44,6 +46,42 @@ const experiments = [
   },
 ]
 
+function ProcessFlow() {
+  const [visible, setVisible] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.2 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} style={styles.flowWrap}>
+      <style>{`
+        @keyframes revealLTR {
+          from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+          to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
+        }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+      {visible && (
+        <img
+          src={`${BASE}process-flow.png`}
+          alt="Supercharging a typical product development process"
+          style={styles.flowImg}
+        />
+      )}
+    </div>
+  )
+}
+
 export default function ExperimentsSection() {
   const [open, setOpen] = useState(null)
 
@@ -55,6 +93,8 @@ export default function ExperimentsSection() {
           3 experiments<span style={{ color: t.accent }}>.</span>
         </h2>
         <p style={styles.sub}>Supercharging a typical product development process</p>
+
+        <ProcessFlow />
 
         <div style={styles.list}>
           {experiments.map((exp, i) => {
@@ -152,6 +192,19 @@ const styles = {
     fontSize: '15px',
     color: t.muted,
     marginBottom: '48px',
+  },
+  flowWrap: {
+    borderRadius: '16px',
+    overflow: 'hidden',
+    marginBottom: '48px',
+    border: `1px solid ${t.border}`,
+    background: t.surface,
+    minHeight: '160px',
+  },
+  flowImg: {
+    width: '100%',
+    display: 'block',
+    animation: 'revealLTR 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards',
   },
   list: {
     display: 'flex',
