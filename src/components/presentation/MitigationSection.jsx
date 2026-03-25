@@ -26,7 +26,7 @@ const columns = [
       { text: 'UX Quality metrics mapped to business KPIs', cross: true },
       { text: 'Shared Dashboards for PMs and Designers', cross: true },
       { text: 'Quarterly reviews baked into QBRs', cross: true },
-      { text: 'Centralised accessible insights', cross: true },
+      { text: 'Centralised accessible insights', done: true },
     ],
   },
   {
