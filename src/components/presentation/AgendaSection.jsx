@@ -4,7 +4,7 @@ import SectionLabel from './SectionLabel'
 const rows = [
   { time: '10:00 – 10:15', what: 'Intro to the day', who: 'Evi', where: 'Clockwise' },
   { time: '10:15 – 12:00', what: 'Tasks pt 1', who: 'All', where: 'Clockwise' },
-  { time: '12:00 – 13:00', what: 'Lunch', who: 'All', where: 'Bristol KLZ office' },
+  { time: '12:00 – 13:00', what: "Lunch by Cambell's Kitchen", who: 'All', where: 'Bristol KLZ office' },
   { time: '13:00 – 15:00', what: 'Tasks pt 2', who: 'All', where: 'Bristol office — club room' },
   { time: '15:00 – 16:15', what: 'Kaluza Townhall', who: 'All', where: 'Bristol office — main meeting room' },
   { time: '16:15 – 17:00', what: 'Playback & Wrap up', who: 'All / Evi', where: 'Bristol office — club room', note: 'Neel may be joining us' },
