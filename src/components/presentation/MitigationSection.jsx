@@ -1,5 +1,6 @@
 import { t, wrap, sectionBase } from './theme'
 import SectionLabel from './SectionLabel'
+import { useReveal, fadeUp } from './useReveal'
 
 const columns = [
   {
@@ -58,6 +59,8 @@ const columns = [
 ]
 
 export default function MitigationSection() {
+  const { ref, visible } = useReveal()
+
   return (
     <section id="plan" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
       <div style={wrap}>
@@ -66,9 +69,9 @@ export default function MitigationSection() {
           We have a<br />mitigation plan<span style={{ color: t.accent }}>.</span>
         </h2>
 
-        <div style={styles.grid}>
+        <div ref={ref} style={styles.grid}>
           {columns.map((col, i) => (
-            <div key={i} style={{ ...styles.col, borderTop: `3px solid ${col.color}` }}>
+            <div key={i} style={{ ...styles.col, borderTop: `3px solid ${col.color}`, opacity: 0, ...fadeUp(visible, i * 0.15) }}>
               <div style={styles.colHeader}>
                 <span style={{ ...styles.fixTag, color: col.color, background: col.bg, border: `1px solid ${col.border}` }}>
                   Fixes: {col.fix}

@@ -1,5 +1,6 @@
 import { t, wrap, sectionBase } from './theme'
 import SectionLabel from './SectionLabel'
+import { useReveal, fadeUp } from './useReveal'
 
 const pillars = [
   {
@@ -52,6 +53,9 @@ const goalObjectives = [
 ]
 
 export default function QualitySection() {
+  const pillarsReveal = useReveal()
+  const mitigReveal = useReveal()
+
   return (
     <section id="quality" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
       <div style={wrap}>
@@ -63,9 +67,10 @@ export default function QualitySection() {
         <p style={styles.subheading}>Definitions and pillars for 2026</p>
 
         {/* Pillars */}
-        <div style={styles.pillars}>
+        <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px);} to { opacity:1; transform:translateY(0);} }`}</style>
+        <div ref={pillarsReveal.ref} style={styles.pillars}>
           {pillars.map((p, i) => (
-            <div key={i} style={{ ...styles.pillar, background: p.bg, borderColor: p.border }}>
+            <div key={i} style={{ ...styles.pillar, background: p.bg, borderColor: p.border, opacity: 0, ...fadeUp(pillarsReveal.visible, i * 0.15) }}>
               <span style={{ ...styles.pillarLabel, color: p.color }}>{p.title}</span>
               <p style={styles.pillarBody}>{p.body}</p>
             </div>
