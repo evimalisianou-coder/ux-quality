@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { t, wrap, sectionBase } from './theme'
 import SectionLabel from './SectionLabel'
+import { useReveal } from './useReveal'
 
 const risks = [
   {
@@ -51,32 +52,44 @@ const risks = [
 
 export default function RisksSection() {
   const [active, setActive] = useState(null)
+  const { ref, visible } = useReveal()
 
   const toggle = (i) => setActive(prev => prev === i ? null : i)
 
   return (
     <section id="risks" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
       <div style={wrap}>
+        <style>{`
+          @keyframes spotlight {
+            0%   { opacity: 0; filter: blur(12px); transform: scale(0.97); }
+            60%  { filter: blur(2px); }
+            100% { opacity: 1; filter: blur(0px); transform: scale(1); }
+          }
+        `}</style>
         <SectionLabel number={3} label="Risks" />
         <h2 style={styles.heading}>
           Risks against<br />meeting our KR<span style={{ color: t.red }}>.</span>
         </h2>
         <p style={styles.hint}>Click a risk to focus</p>
 
-        <div style={styles.grid}>
+        <div ref={ref} style={styles.grid}>
           {risks.map((r, i) => {
             const isActive = active === i
             const isDimmed = active !== null && !isActive
+            const entryStyle = visible
+              ? { animation: `spotlight 0.7s ease ${i * 0.18}s forwards` }
+              : { opacity: 0 }
             return (
               <button
                 key={i}
                 onClick={() => toggle(i)}
                 style={{
                   ...styles.card,
+                  ...entryStyle,
                   background: isActive ? r.bg : t.surface,
                   borderColor: isActive ? r.color : t.border,
-                  opacity: isDimmed ? 0.35 : 1,
-                  transform: isActive ? 'scale(1.02)' : 'scale(1)',
+                  opacity: isDimmed ? 0.35 : undefined,
+                  transform: isActive ? 'scale(1.02)' : undefined,
                 }}
               >
                 <div style={styles.cardNum}>{String(i + 1).padStart(2, '0')}</div>
