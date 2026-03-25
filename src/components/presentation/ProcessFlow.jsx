@@ -65,7 +65,7 @@ export default function ProcessFlow() {
         ...styles.title,
         ...(visible ? { animation: 'fadeUp 0.5s ease forwards' } : { opacity: 0 }),
       }}>
-        Supercharging a typical product development process
+        A Flex based case study
       </p>
 
       {/* Cards + connectors */}
