@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { t } from './theme'
 
 const links = [
+  { id: 'welcome', label: 'Welcome' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'quality', label: 'UX Quality' },
   { id: 'risks', label: 'Risks' },
