@@ -49,10 +49,10 @@ const columns = [
     bg: t.purpleBg,
     border: t.purpleBorder,
     points: [
-      { text: 'AI governance so prototypes stay on-brand in code' },
-      { text: 'Figma Make templates, MCP and Code Connect' },
-      { text: 'Automated Design QA' },
-      { text: 'Post-release UX feedback route' },
+      { text: 'AI governance so prototypes stay on-brand in code', warn: true },
+      { text: 'Figma Make templates, MCP and Code Connect', warn: true },
+      { text: 'Automated Design QA', warn: true },
+      { text: 'Post-release UX feedback route', warn: true },
     ],
   },
 ]
@@ -82,6 +82,8 @@ export default function MitigationSection() {
                       ? <span style={styles.tick}>✓</span>
                       : pt.cross
                       ? <span style={styles.cross}>✕</span>
+                      : pt.warn
+                      ? <span style={styles.warn}>!</span>
                       : <span style={{ ...styles.dot, background: col.color }} />
                     }
                     <span style={pt.done ? styles.pointDone : undefined}>{pt.text}</span>
@@ -173,6 +175,13 @@ const styles = {
     color: '#f87171',
     fontSize: '13px',
     fontWeight: '700',
+    flexShrink: 0,
+    lineHeight: 1.5,
+  },
+  warn: {
+    color: '#fbbf24',
+    fontSize: '13px',
+    fontWeight: '800',
     flexShrink: 0,
     lineHeight: 1.5,
   },
