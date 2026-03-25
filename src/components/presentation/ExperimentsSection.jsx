@@ -13,6 +13,7 @@ const experiments = [
     parts: [
       { time: '10:15 – 12:00', body: 'Use Claude Code (plus any other AI tools you think would be useful) to do market research on EV drivers, generate insights about their needs, and store the data to Confluence. Create a reusable process.' },
       { time: '13:00 – 15:00', body: 'Use Claude Code to create a synthetic persona and a Claude Skill for stakeholders to interact with. Use it to identify and prioritise knowledge gaps for EV driver customer experience.' },
+      { time: '16:15 – 17:00', label: 'Present', body: 'Present your build and insights to the group (10 mins/group).' },
     ],
     tools: [
       'Claude Code (plus other AI tools as you wish) and Figma to ideate, interpret and summarise data',
@@ -139,7 +140,9 @@ export default function ExperimentsSection() {
                             <div style={styles.parts}>
                               {exp.parts.map((part, j) => (
                                 <div key={j} style={{ ...styles.part, borderColor: exp.border }}>
-                                  <span style={{ ...styles.partTime, color: exp.color }}>{part.time}</span>
+                                  <span style={{ ...styles.partTime, color: exp.color }}>
+                                    {part.label && <strong>{part.label} · </strong>}{part.time}
+                                  </span>
                                   <p style={styles.partBody}>{part.body}</p>
                                 </div>
                               ))}
