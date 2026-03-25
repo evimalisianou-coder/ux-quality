@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { t } from './theme'
 
+const BASE = import.meta.env.BASE_URL
+
 const links = [
   { id: 'welcome', label: 'Welcome' },
   { id: 'agenda', label: 'Agenda' },
@@ -33,10 +35,7 @@ export default function Nav() {
     <nav style={{ ...styles.nav, background: scrolled ? 'rgba(8,8,8,0.95)' : 'transparent', backdropFilter: scrolled ? 'blur(12px)' : 'none', borderBottom: scrolled ? `1px solid ${t.border}` : '1px solid transparent' }}>
       <div style={styles.inner}>
         <span style={styles.logo}>
-          <svg width="20" height="20" viewBox="0 0 32 32" fill="none" style={{ flexShrink: 0 }}>
-            <rect width="32" height="32" rx="6" fill="#445c3f"/>
-            <path d="M8 16l8-8 8 8-8 8-8-8z" fill="white" opacity="0.9"/>
-          </svg>
+          <img src={`${BASE}kaluza-logo.jpeg`} alt="Kaluza" style={styles.logoImg} />
           <span style={styles.logoText}>UX Away Day 2026</span>
         </span>
         <div style={styles.links}>
@@ -81,6 +80,14 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
+  },
+  logoImg: {
+    width: '28px',
+    height: '28px',
+    objectFit: 'contain',
+    borderRadius: '4px',
+    flexShrink: 0,
+    filter: 'invert(1)',
   },
   logoText: {
     fontSize: '13px',
