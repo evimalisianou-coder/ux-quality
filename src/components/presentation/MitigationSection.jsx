@@ -9,10 +9,10 @@ const columns = [
     bg: t.amberBg,
     border: t.amberBorder,
     points: [
-      'UX Fitness Tests baked into the release cycle',
-      'ER Gate: WCAG AA, Adherence to Nebula, event tracking',
-      'DRI Gate / Global journeys mapped',
-      'UX Quality in DOR and DOD',
+      { text: 'UX Fitness Tests baked into the release cycle', done: true },
+      { text: 'ER Gate: WCAG AA, Adherence to Nebula, event tracking', done: true },
+      { text: 'GR Gate: i18n/l10n, Global journeys mapped', done: true },
+      { text: 'UX Quality in DOR and DOD', done: true },
     ],
   },
   {
@@ -22,10 +22,10 @@ const columns = [
     bg: t.redBg,
     border: t.redBorder,
     points: [
-      'UX Quality metrics mapped to business KPIs',
-      'Shared Dashboards for PMs and Designers',
-      'Quarterly reviews baked into QBRs',
-      'Centralised accessible insights',
+      { text: 'UX Quality metrics mapped to business KPIs' },
+      { text: 'Shared Dashboards for PMs and Designers' },
+      { text: 'Quarterly reviews baked into QBRs' },
+      { text: 'Centralised accessible insights' },
     ],
   },
   {
@@ -35,9 +35,9 @@ const columns = [
     bg: t.blueBg,
     border: t.blueBorder,
     points: [
-      'Single point of accountability for E2E Global journeys',
-      'Measured by Journey Time to Completion (JTC)',
-      'User Friction Score (UFS)',
+      { text: 'Single point of accountability for E2E Global journeys' },
+      { text: 'Measured by Journey Time to Completion (JTC)' },
+      { text: 'User Friction Score (UFS)' },
     ],
   },
   {
@@ -47,10 +47,10 @@ const columns = [
     bg: t.purpleBg,
     border: t.purpleBorder,
     points: [
-      'AI governance so prototypes stay on-brand in code',
-      'Figma Make templates, MCP and Code Connect',
-      'Automated Design QA',
-      'Post-release UX feedback route',
+      { text: 'AI governance so prototypes stay on-brand in code' },
+      { text: 'Figma Make templates, MCP and Code Connect' },
+      { text: 'Automated Design QA' },
+      { text: 'Post-release UX feedback route' },
     ],
   },
 ]
@@ -76,8 +76,11 @@ export default function MitigationSection() {
               <ul style={styles.points}>
                 {col.points.map((pt, j) => (
                   <li key={j} style={styles.point}>
-                    <span style={{ ...styles.dot, background: col.color }} />
-                    {pt}
+                    {pt.done
+                      ? <span style={styles.tick}>✓</span>
+                      : <span style={{ ...styles.dot, background: col.color }} />
+                    }
+                    <span style={pt.done ? styles.pointDone : undefined}>{pt.text}</span>
                   </li>
                 ))}
               </ul>
@@ -154,5 +157,15 @@ const styles = {
     borderRadius: '50%',
     flexShrink: 0,
     marginTop: '6px',
+  },
+  tick: {
+    color: '#4ade80',
+    fontSize: '13px',
+    fontWeight: '700',
+    flexShrink: 0,
+    lineHeight: 1.5,
+  },
+  pointDone: {
+    color: t.dim,
   },
 }
