@@ -36,7 +36,7 @@ const columns = [
     border: t.blueBorder,
     points: [
       { text: 'Single point of accountability for E2E global journeys', cross: true },
-      { text: 'Measured by the three dials of journey health:' },
+      { text: 'Measured by the three dials of journey health:', plain: true },
       { text: 'Journey Completion Rate (JCR)', done: true },
       { text: 'Journey Time to Completion (JTC)', done: true },
       { text: 'User Friction Score (UFS)', done: true },
@@ -84,6 +84,8 @@ export default function MitigationSection() {
                       ? <span style={styles.cross}>✕</span>
                       : pt.warn
                       ? <span style={styles.warn}>!</span>
+                      : pt.plain
+                      ? <span style={styles.dotSpacer} />
                       : <span style={{ ...styles.dot, background: col.color }} />
                     }
                     <span style={pt.done ? styles.pointDone : undefined}>{pt.text}</span>
@@ -163,6 +165,10 @@ const styles = {
     borderRadius: '50%',
     flexShrink: 0,
     marginTop: '6px',
+  },
+  dotSpacer: {
+    width: '13px',
+    flexShrink: 0,
   },
   tick: {
     color: '#4ade80',
