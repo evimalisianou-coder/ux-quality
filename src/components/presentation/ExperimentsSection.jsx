@@ -13,7 +13,7 @@ const experiments = [
     parts: [
       { time: '10:15 – 12:00', body: 'Use Claude Code (plus any other AI tools you think would be useful) to do market research on EV drivers, generate insights about their needs, and store the data to Confluence. Create a reusable process.' },
       { time: '13:00 – 15:00', body: 'Use Claude Code to create a synthetic persona and a Claude Skill for stakeholders to interact with. Use it to identify and prioritise knowledge gaps for EV driver customer experience.' },
-      { time: '16:15 – 17:00', label: 'Present', body: 'Present your build and insights to the group (10 mins/group).' },
+      { time: '16:15 – 17:00', body: 'Present your build and insights to the group (10 mins/group).' },
     ],
     tools: [
       'Claude Code (plus other AI tools as you wish) and Figma to ideate, interpret and summarise data',
@@ -35,7 +35,7 @@ const experiments = [
     parts: [
       { time: '10:15 – 12:00', body: 'Use Figma (plus any other AI tools you think would be useful) to ideate solutions to the design brief. Move onto building your designs when you feel ready.' },
       { time: '13:00 – 15:00', body: 'Use VSCode to build the design in the browser. Experiment with building the screens, as well as teaching Claude how to reference your design file, tokens, MUI components, etc.' },
-      { time: '16:15 – 17:00', label: 'Present', body: 'Present your build and insights to the group (10 mins/group).' },
+      { time: '16:15 – 17:00', body: 'Present your build and insights to the group (10 mins/group).' },
     ],
     tools: [
       'Figma Make (plus other AI tools as you wish) to design components that respond to the design brief',
@@ -57,7 +57,7 @@ const experiments = [
     parts: [
       { time: '10:15 – 12:00', body: 'Identify current heuristic reviews and Nebula standards. Build an automated evaluation framework into a structured Claude (or Gemini) prompt. Define the guiding logic for the Quality Engine.' },
       { time: '13:00 – 15:00', body: 'Refine and test using an existing diff/screenshot. Generate a Friction Report and identify the "Human Delta" — where AI falls short on accessibility and UX judgement.' },
-      { time: '16:15 – 17:00', label: 'Present', body: 'Present your automated engine, the generated Friction Report, and your insights on AI "taste" to the group (10 mins/group).' },
+      { time: '16:15 – 17:00', body: 'Present your automated engine, the generated Friction Report, and your insights on AI "taste" to the group (10 mins/group).' },
     ],
     tools: [
       'Claude Code: build the reusable system, master prompts, and orchestrate the Quality Engine',
