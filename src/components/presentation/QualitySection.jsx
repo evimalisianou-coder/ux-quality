@@ -42,7 +42,7 @@ const goalObjectives = [
     ],
   },
   {
-    label: 'LIM',
+    label: 'IJM',
     title: 'Journey Efficiency & Health',
     points: [
       'Define, deliver and test UX efficiency & effectiveness metrics',
@@ -95,7 +95,7 @@ export default function QualitySection() {
             <span style={styles.crossLabel}>UX TEAM — CROSS-CUTTING</span>
             <p style={styles.crossTitle}>Operationalise UX Excellence</p>
             <p style={styles.crossBody}>
-              Drive the awareness, adoption and adherence of ENX & LIM platform team products/metrics,
+              Drive the awareness, adoption and adherence of ENX & IJM platform team products/metrics,
               and UX functional quality standards in Value Streams, including UX Fitness Tools and AI Design Guidelines.
             </p>
           </div>
