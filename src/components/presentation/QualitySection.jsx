@@ -58,7 +58,7 @@ export default function QualitySection() {
         <SectionLabel number={2} label="UX Quality at Kaluza" />
         <h2 style={styles.heading}>
           High-quality UX means the user experience<br />
-          of our platform is<span style={{ color: t.accent }}>.</span>
+          of our platform is<span style={{ color: t.accent }}>:</span>
         </h2>
         <p style={styles.subheading}>Definitions and pillars for 2026</p>
 
