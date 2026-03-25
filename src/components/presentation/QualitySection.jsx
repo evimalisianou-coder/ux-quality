@@ -70,7 +70,7 @@ export default function QualitySection() {
         <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px);} to { opacity:1; transform:translateY(0);} }`}</style>
         <div ref={pillarsReveal.ref} style={styles.pillars}>
           {pillars.map((p, i) => (
-            <div key={i} style={{ ...styles.pillar, background: p.bg, borderColor: p.border, opacity: 0, ...fadeUp(pillarsReveal.visible, i * 0.15) }}>
+            <div key={i} style={{ ...styles.pillar, background: p.bg, borderColor: p.border, ...fadeUp(pillarsReveal.visible, i * 0.15) }}>
               <span style={{ ...styles.pillarLabel, color: p.color }}>{p.title}</span>
               <p style={styles.pillarBody}>{p.body}</p>
             </div>
