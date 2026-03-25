@@ -56,6 +56,7 @@ const experiments = [
     parts: [
       { time: '10:15 – 12:00', body: 'Identify current heuristic reviews and Nebula standards. Build an automated evaluation framework into a structured Claude (or Gemini) prompt. Define the guiding logic for the Quality Engine.' },
       { time: '13:00 – 15:00', body: 'Refine and test using an existing diff/screenshot. Generate a Friction Report and identify the "Human Delta" — where AI falls short on accessibility and UX judgement.' },
+      { time: '16:15 – 17:00', label: 'Present', body: 'Present your automated engine, the generated Friction Report, and your insights on AI "taste" to the group (10 mins/group).' },
     ],
     tools: [
       'Claude Code: build the reusable system, master prompts, and orchestrate the Quality Engine',
