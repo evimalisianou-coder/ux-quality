@@ -35,9 +35,8 @@ const columns = [
     bg: t.blueBg,
     border: t.blueBorder,
     points: [
-      { text: 'Single point of accountability for E2E Global journeys' },
-      { text: 'Measured by Journey Time to Completion (JTC)' },
-      { text: 'User Friction Score (UFS)' },
+      { text: 'Single point of accountability for E2E global journeys' },
+      { text: 'Measured by the three dials of journey health: Journey Time to Completion (JTC), Journey Time to Completion (JTC), User Friction Score (UFS)' },
     ],
   },
   {
