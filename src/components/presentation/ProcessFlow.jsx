@@ -10,7 +10,7 @@ const experiments = [
     color: t.purple,
     bg: t.purpleBg,
     border: t.purpleBorder,
-    pillar: 'Guard the System',
+    pillar: 'Make Quality Visible',
   },
   {
     number: 'Experiment #2',
@@ -20,7 +20,7 @@ const experiments = [
     color: t.accent,
     bg: t.accentBg,
     border: t.accentBorder,
-    pillar: 'Make Quality Visible',
+    pillar: 'Guard the System',
   },
   {
     number: 'Experiment #3',
