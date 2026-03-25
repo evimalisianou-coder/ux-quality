@@ -1,6 +1,49 @@
+import { useState, useEffect, useRef } from 'react'
 import { t, wrap, sectionBase } from './theme'
 import SectionLabel from './SectionLabel'
 import { useReveal, fadeUp } from './useReveal'
+
+const FULL_TEXT = 'High-quality UX means the user experience\nof our platform is'
+
+function TypewriterHeading() {
+  const [displayed, setDisplayed] = useState('')
+  const [done, setDone] = useState(false)
+  const [started, setStarted] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStarted(true) },
+      { threshold: 0.3 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!started) return
+    if (displayed.length >= FULL_TEXT.length) { setDone(true); return }
+    const timeout = setTimeout(() => {
+      setDisplayed(FULL_TEXT.slice(0, displayed.length + 1))
+    }, 28)
+    return () => clearTimeout(timeout)
+  }, [started, displayed])
+
+  const lines = displayed.split('\n')
+
+  return (
+    <h2 ref={ref} style={styles.heading}>
+      {lines.map((line, i) => (
+        <span key={i}>
+          {line}
+          {i < lines.length - 1 && <br />}
+        </span>
+      ))}
+      {done && <span style={{ color: t.accent }}>:</span>}
+      {!done && <span style={styles.cursor}>|</span>}
+    </h2>
+  )
+}
 
 const pillars = [
   {
@@ -60,14 +103,14 @@ export default function QualitySection() {
     <section id="quality" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
       <div style={wrap}>
         <SectionLabel number={2} label="UX Quality at Kaluza" />
-        <h2 style={styles.heading}>
-          High-quality UX means the user experience<br />
-          of our platform is<span style={{ color: t.accent }}>:</span>
-        </h2>
+        <TypewriterHeading />
         <p style={styles.subheading}>Definitions and pillars for 2026</p>
 
         {/* Pillars */}
-        <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px);} to { opacity:1; transform:translateY(0);} }`}</style>
+        <style>{`
+          @keyframes fadeUp { from { opacity:0; transform:translateY(16px);} to { opacity:1; transform:translateY(0);} }
+          @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+        `}</style>
         <div ref={pillarsReveal.ref} style={styles.pillars}>
           {pillars.map((p, i) => (
             <div key={i} style={{ ...styles.pillar, background: p.bg, borderColor: p.border, ...fadeUp(pillarsReveal.visible, i * 0.15) }}>
@@ -118,6 +161,12 @@ const styles = {
     letterSpacing: '-1.5px',
     lineHeight: 1.1,
     marginBottom: '8px',
+  },
+  cursor: {
+    display: 'inline-block',
+    color: t.accent,
+    animation: 'blink 0.8s step-end infinite',
+    marginLeft: '2px',
   },
   subheading: {
     fontSize: '15px',
