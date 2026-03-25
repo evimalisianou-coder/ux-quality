@@ -1,0 +1,1 @@
+*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}html,body,#root{width:100%;min-height:100%}#root.gate{height:100vh;overflow:hidden}body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#0f0f0f;color:#fff;-webkit-font-smoothing:antialiased}
