@@ -53,7 +53,7 @@ of our platform is`;function sp(){const[e,t]=B.useState(""),[n,r]=B.useState(!1)
           @keyframes fadeUp { from { opacity:0; transform:translateY(16px);} to { opacity:1; transform:translateY(0);} }
           @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
           audio { accent-color: #6ee7b7; }
-          audio::-webkit-media-controls-panel { background-color: rgba(110,231,183,0.08); border-radius: 8px; }
+          audio::-webkit-media-controls-panel { background-color: transparent; border-radius: 8px; outline: 1px solid #6ee7b7; }
           audio::-webkit-media-controls-play-button { filter: invert(1) sepia(1) saturate(2) hue-rotate(100deg); }
           audio::-webkit-media-controls-current-time-display,
           audio::-webkit-media-controls-time-remaining-display { color: #6ee7b7; }
@@ -64,7 +64,7 @@ of our platform is`;function sp(){const[e,t]=B.useState(""),[n,r]=B.useState(!1)
             100% { opacity: 1; filter: blur(0px); transform: scale(1); }
           }
           audio { accent-color: #6ee7b7; }
-          audio::-webkit-media-controls-panel { background-color: rgba(110,231,183,0.08); border-radius: 8px; }
+          audio::-webkit-media-controls-panel { background-color: transparent; border-radius: 8px; outline: 1px solid #6ee7b7; }
           audio::-webkit-media-controls-play-button { filter: invert(1) sepia(1) saturate(2) hue-rotate(100deg); }
           audio::-webkit-media-controls-current-time-display,
           audio::-webkit-media-controls-time-remaining-display { color: #6ee7b7; }
