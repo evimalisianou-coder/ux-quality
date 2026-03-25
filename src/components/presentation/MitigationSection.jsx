@@ -59,7 +59,7 @@ const columns = [
 ]
 
 export default function MitigationSection() {
-  const { ref, visible } = useReveal()
+  const { ref, visible, animDone, onAnimEnd } = useReveal()
 
   return (
     <section id="plan" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
@@ -71,7 +71,7 @@ export default function MitigationSection() {
 
         <div ref={ref} style={styles.grid}>
           {columns.map((col, i) => (
-            <div key={i} style={{ ...styles.col, borderTop: `3px solid ${col.color}`, ...fadeUp(visible, i * 0.15) }}>
+            <div key={i} onAnimationEnd={() => onAnimEnd(columns.length)} style={{ ...styles.col, borderTop: `3px solid ${col.color}`, ...fadeUp(visible, animDone, i * 0.15) }}>
               <div style={styles.colHeader}>
                 <span style={{ ...styles.fixTag, color: col.color, background: col.bg, border: `1px solid ${col.border}` }}>
                   Fixes: {col.fix}

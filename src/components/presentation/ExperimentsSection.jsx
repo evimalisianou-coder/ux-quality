@@ -8,7 +8,7 @@ const experiments = [
     number: '01',
     title: 'Synthetic Persona Stress-Testing',
     phase: 'Discovery',
-    pillar: 'Guard the System',
+    pillar: 'Make Quality Visible',
     goal: 'To generate actionable insights and usable artefacts about the needs of EV drivers to inform a customer-facing responsive web interface for Kaluza\'s new Retailer Agnostic Flex (RAF) product.',
     parts: [
       { time: '10:15 – 12:00', body: 'Use Claude Code (plus any other AI tools you think would be useful) to do market research on EV drivers, generate insights about their needs, and store the data to Confluence. Create a reusable process.' },
@@ -29,7 +29,7 @@ const experiments = [
     number: '02',
     title: 'The Design-to-Code Sprint',
     phase: 'Design & Develop',
-    pillar: 'Make Quality Visible',
+    pillar: 'Guard the System',
     goal: 'To ideate, design (using Figma Make / Google AI Studio / Stitch etc.) and build (in VS Code) a responsive web interface for Kaluza\'s new Retailer Agnostic Flex (RAF) product — where EV drivers can see the benefits of allowing Kaluza to automatically manage their car\'s charging schedule once they\'ve signed up to Flex.',
     parts: [
       { time: '10:15 – 12:00', body: 'Use Figma (plus any other AI tools you think would be useful) to ideate solutions to the design brief. Move onto building your designs when you feel ready.' },

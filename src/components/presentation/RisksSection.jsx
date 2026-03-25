@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { t, wrap, sectionBase } from './theme'
 import SectionLabel from './SectionLabel'
 import { useReveal } from './useReveal'
@@ -52,9 +52,16 @@ const risks = [
 
 export default function RisksSection() {
   const [active, setActive] = useState(null)
+  const [animDone, setAnimDone] = useState(false)
   const { ref, visible } = useReveal()
+  const doneCount = useRef(0)
 
   const toggle = (i) => setActive(prev => prev === i ? null : i)
+
+  const handleAnimEnd = () => {
+    doneCount.current += 1
+    if (doneCount.current >= risks.length) setAnimDone(true)
+  }
 
   return (
     <section id="risks" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
@@ -76,20 +83,23 @@ export default function RisksSection() {
           {risks.map((r, i) => {
             const isActive = active === i
             const isDimmed = active !== null && !isActive
-            const entryStyle = visible
+            const entryStyle = animDone
+              ? {}
+              : visible
               ? { animation: `spotlight 0.7s ease ${i * 0.18}s forwards` }
               : { opacity: 0 }
             return (
               <button
                 key={i}
                 onClick={() => toggle(i)}
+                onAnimationEnd={handleAnimEnd}
                 style={{
                   ...styles.card,
                   ...entryStyle,
                   background: isActive ? r.bg : t.surface,
                   borderColor: isActive ? r.color : t.border,
-                  opacity: isDimmed ? 0.35 : undefined,
-                  transform: isActive ? 'scale(1.02)' : undefined,
+                  opacity: isDimmed ? 0.35 : animDone ? 1 : undefined,
+                  transform: isActive ? 'scale(1.02)' : animDone ? 'scale(1)' : undefined,
                 }}
               >
                 <div style={styles.cardNum}>{String(i + 1).padStart(2, '0')}</div>

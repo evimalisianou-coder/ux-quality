@@ -113,7 +113,7 @@ export default function QualitySection() {
         `}</style>
         <div ref={pillarsReveal.ref} style={styles.pillars}>
           {pillars.map((p, i) => (
-            <div key={i} style={{ ...styles.pillar, background: p.bg, borderColor: p.border, ...fadeUp(pillarsReveal.visible, i * 0.15) }}>
+            <div key={i} onAnimationEnd={() => pillarsReveal.onAnimEnd(pillars.length)} style={{ ...styles.pillar, background: p.bg, borderColor: p.border, ...fadeUp(pillarsReveal.visible, pillarsReveal.animDone, i * 0.15) }}>
               <span style={{ ...styles.pillarLabel, color: p.color }}>{p.title}</span>
               <p style={styles.pillarBody}>{p.body}</p>
             </div>
