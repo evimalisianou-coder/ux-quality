@@ -100,7 +100,7 @@ export default function QualitySection() {
   const mitigReveal = useReveal()
 
   return (
-    <section id="quality" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
+    <section id="quality" ref={pillarsReveal.ref} style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
       <div style={wrap}>
         <SectionLabel number={2} label="UX Quality at Kaluza" />
         <TypewriterHeading />
@@ -111,7 +111,7 @@ export default function QualitySection() {
           @keyframes fadeUp { from { opacity:0; transform:translateY(16px);} to { opacity:1; transform:translateY(0);} }
           @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
         `}</style>
-        <div ref={pillarsReveal.ref} style={styles.pillars}>
+        <div style={styles.pillars}>
           {pillars.map((p, i) => (
             <div key={i} onAnimationEnd={() => pillarsReveal.onAnimEnd(pillars.length)} style={{ ...styles.pillar, background: p.bg, borderColor: p.border, ...fadeUp(pillarsReveal.visible, pillarsReveal.animDone, i * 0.15) }}>
               <span style={{ ...styles.pillarLabel, color: p.color }}>{p.title}</span>
@@ -203,8 +203,8 @@ const styles = {
     overflow: 'hidden',
   },
   goalHeader: {
-    background: t.amberBg,
-    borderBottom: `1px solid ${t.amberBorder}`,
+    background: t.redBg,
+    borderBottom: `1px solid ${t.redBorder}`,
     padding: '20px 28px',
     display: 'flex',
     alignItems: 'center',
@@ -214,7 +214,7 @@ const styles = {
     fontSize: '10px',
     fontWeight: '700',
     letterSpacing: '0.14em',
-    color: t.amber,
+    color: t.red,
     textTransform: 'uppercase',
     flexShrink: 0,
   },

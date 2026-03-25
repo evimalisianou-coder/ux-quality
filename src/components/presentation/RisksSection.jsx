@@ -64,7 +64,7 @@ export default function RisksSection() {
   }
 
   return (
-    <section id="risks" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
+    <section id="risks" ref={ref} style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
       <div style={wrap}>
         <style>{`
           @keyframes spotlight {
@@ -79,7 +79,7 @@ export default function RisksSection() {
         </h2>
         <p style={styles.hint}>Click a risk to focus</p>
 
-        <div ref={ref} style={styles.grid}>
+        <div style={styles.grid}>
           {risks.map((r, i) => {
             const isActive = active === i
             const isDimmed = active !== null && !isActive

@@ -9,7 +9,7 @@ export function useReveal(threshold = 0.15) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true) },
-      { threshold }
+      { threshold: 0, rootMargin: '0px 0px -60px 0px' }
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()

@@ -62,14 +62,14 @@ export default function MitigationSection() {
   const { ref, visible, animDone, onAnimEnd } = useReveal()
 
   return (
-    <section id="plan" style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
+    <section id="plan" ref={ref} style={{ ...sectionBase, borderBottom: `1px solid ${t.border}` }}>
       <div style={wrap}>
         <SectionLabel number={4} label="Mitigation Plan" />
         <h2 style={styles.heading}>
           We have a<br />mitigation plan<span style={{ color: t.accent }}>.</span>
         </h2>
 
-        <div ref={ref} style={styles.grid}>
+        <div style={styles.grid}>
           {columns.map((col, i) => (
             <div key={i} onAnimationEnd={() => onAnimEnd(columns.length)} style={{ ...styles.col, borderTop: `3px solid ${col.color}`, ...fadeUp(visible, animDone, i * 0.15) }}>
               <div style={styles.colHeader}>
