@@ -35,6 +35,7 @@ const experiments = [
     parts: [
       { time: '10:15 – 12:00', body: 'Use Figma (plus any other AI tools you think would be useful) to ideate solutions to the design brief. Move onto building your designs when you feel ready.' },
       { time: '13:00 – 15:00', body: 'Use VSCode to build the design in the browser. Experiment with building the screens, as well as teaching Claude how to reference your design file, tokens, MUI components, etc.' },
+      { time: '16:15 – 17:00', label: 'Present', body: 'Present your build and insights to the group (10 mins/group).' },
     ],
     tools: [
       'Figma Make (plus other AI tools as you wish) to design components that respond to the design brief',
